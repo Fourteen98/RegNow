@@ -1,0 +1,74 @@
+# RegNow
+
+This is a FastAPI project that showcases a student registration system api for Koforidua Technical University CSC BTECH(weekends) 23/24 Software Engineering Course.
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [API Documentation](#api-documentation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Authors](#authors)
+
+## Getting Started
+
+These instructions will help you set up and run the project on your local machine.
+
+### Prerequisites
+
+- Python 3.x (Recommended: Python 3.8 or later)
+- pip (Python package manager)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Fourteen98/RegNow.git
+```
+2. Navigate to project directory
+```bash
+cd RegNow
+```
+3. Create a virtual environment
+```bash
+python3 -m venv venv
+```
+4. Activate the virtual environment
+- On macOs/Linux
+```bash
+source venv/bin/activate
+```
+- On Windows
+```powershell
+venv\Scripts\Activate
+```
+5. Install project dependencies
+```bash
+pip install -r requirement.txt
+```
+## Usage
+Run the development server
+```bash
+uvicorn main:app --reload
+```
+Open your browser and navigate to http://127.0.0.1:8000 to access the API.
+
+## API Documentation
+The API documentation is automatically generated using Swagger UI. You can access the documentation by visiting http://127.0.0.1:8000/docs or http://127.0.0.1:8000/redoc after starting the development server.
+
+## Contributing
+Contributions are welcome! If you have any bug fixes, improvements, or new features, please open an issue or a pull request.
+
+## License
+This project is licensed under the [MIT License](LICENSE).
+
+## Authors
+👤 Muhyideen Elias
+GitHub: @fourteen98
+- GitHub: [fourteen98](https://github.com/Fourteen98/)
+- Twitter: [muhiydeen](https://twitter.com/muhiydeen)
+- Linkedin: [muhyideen-elias](https://www.linkedin.com/in/muhyideen-elias-53719994/)
