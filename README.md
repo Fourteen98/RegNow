@@ -50,6 +50,15 @@ venv\Scripts\Activate
 ```bash
 pip install -r requirement.txt
 ```
+6. Linters
+- Check for flake8 linter
+```
+flake8 .
+```
+- Or auto fix flake8 linter
+```bash
+autopep8 --in-place --recursive . && isort -rc .
+```
 ## Usage
 Run the development server
 ```bash
