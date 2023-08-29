@@ -78,6 +78,4 @@ This project is licensed under the [MIT License](LICENSE).
 ## Authors
 👤 Muhyideen Elias
 GitHub: @fourteen98
-- GitHub: [fourteen98](https://github.com/Fourteen98/)
-- Twitter: [muhiydeen](https://twitter.com/muhiydeen)
-- Linkedin: [muhyideen-elias](https://www.linkedin.com/in/muhyideen-elias-53719994/)
+
