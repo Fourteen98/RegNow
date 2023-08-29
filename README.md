@@ -8,6 +8,7 @@ This is a FastAPI project that showcases a student registration system api for K
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
+- [Linters](#linters)
 - [API Documentation](#api-documentation)
 - [Contributing](#contributing)
 - [License](#license)
@@ -34,8 +35,13 @@ git clone https://github.com/Fourteen98/RegNow.git
 cd RegNow
 ```
 3. Create a virtual environment
+- On macOs/Linux
 ```bash
 python3 -m venv venv
+```
+- On Windows
+```powershell
+python -m venv venv
 ```
 4. Activate the virtual environment
 - On macOs/Linux
@@ -47,10 +53,27 @@ source venv/bin/activate
 venv\Scripts\Activate
 ```
 5. Install project dependencies
+- On macOs/Linux
 ```bash
 pip install -r requirement.txt
 ```
-6. Linters
+- On Windows
+```
+pip install -r windows_requirement.txt
+```
+## Usage
+Run the development server
+- On macOs/Linux
+```bash
+uvicorn main:app --reload
+```
+- On Windws
+```powershell
+hypercorn main:app --bind 0.0.0.0:80
+```
+Open your browser and navigate to http://127.0.0.1:8000 to access the API.
+
+## Linters
 - Check for flake8 linter
 ```
 flake8 .
@@ -59,13 +82,6 @@ flake8 .
 ```bash
 autopep8 --in-place --recursive . && isort -rc .
 ```
-## Usage
-Run the development server
-```bash
-uvicorn main:app --reload
-```
-Open your browser and navigate to http://127.0.0.1:8000 to access the API.
-
 ## API Documentation
 The API documentation is automatically generated using Swagger UI. You can access the documentation by visiting http://127.0.0.1:8000/docs or http://127.0.0.1:8000/redoc after starting the development server.
 
