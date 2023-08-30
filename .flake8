@@ -2,9 +2,3 @@
 ignore = F401,F841,F403,F405,F541,F811,C901
 exclude =
     venv,
-    env,
-    migrations,
-    panabios_rpc,
-    rpc_client/calls.py,
-    mantys_messaging_rpc,
-    venv,
