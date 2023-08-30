@@ -1,5 +1,8 @@
-from sqlmodel import SQLModel, Field, Column
+from sqlmodel import SQLModel, Field
 import uuid
+from pydantic import EmailStr
+from app.enum import Gender
+from app.utils.country import Country
 
 
 class Student(SQLModel, table=True):
@@ -8,9 +11,10 @@ class Student(SQLModel, table=True):
     first_name: str
     last_name: str
     middle_name: str
-    nationality: str
+    gender: Gender
+    nationality: Country
     age: int
     place_of_birth: str
     current_residence: str
-    email: str = Field(unique=True, index=True)
+    email: EmailStr
     index_number: str
