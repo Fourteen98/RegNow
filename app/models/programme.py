@@ -1,6 +1,7 @@
 import uuid
 from sqlmodel import Column, Field, ForeignKey, Enum, relationship, SQLModel
 
+
 class Student(SQLModel, table=True):
     __tablename__ = 'students'
     
@@ -8,6 +9,7 @@ class Student(SQLModel, table=True):
     name: str = Field(index=True)
     
     programs: list["Program"] = relationship("Program", back_populates="student")
+
 
 class Program(SQLModel, table=True):
     __tablename__ = 'programs'
