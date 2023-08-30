@@ -53,23 +53,13 @@ source venv/bin/activate
 venv\Scripts\Activate
 ```
 5. Install project dependencies
-- On macOs/Linux
 ```bash
 pip install -r requirement.txt
 ```
-- On Windows
-```
-pip install -r windows_requirement.txt
-```
 ## Usage
 Run the development server
-- On macOs/Linux
 ```bash
-uvicorn main:app --reload
-```
-- On Windws
-```powershell
-hypercorn main:app --bind 0.0.0.0:80
+hypercorn app.main:app --bind 0.0.0.0:80
 ```
 Open your browser and navigate to http://127.0.0.1:8000 to access the API.
 
