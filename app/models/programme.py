@@ -1,7 +1,7 @@
 import uuid
 from sqlmodel import Column, Field, ForeignKey, Enum, relationship, SQLModel
 
- class Student (SQLModel, table=True) :
+ class Student (SQLModel, table=True):
     __tablename__ = 'students'
     id: int = Field(primary_key=True)
     name: str = Field(index=True)
