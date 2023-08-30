@@ -1,14 +1,5 @@
 import uuid
 from sqlmodel import Column, Field, ForeignKey, Enum, relationship, SQLModel
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Enum
-from sqlalchemy.orm import sessionmaker, relationship
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import validates
-from sqlalchemy_utils import ChoiceType
-from datetime import date
-from alembic import command
-from alembic.config import Config
-
 
 class Student(SQLModel, table=True):
     __tablename__ = 'students'
@@ -17,7 +8,6 @@ class Student(SQLModel, table=True):
     name: str = Field(index=True)
     
     programs: list["Program"] = relationship("Program", back_populates="student")
-
 
 class Program(SQLModel, table=True):
     __tablename__ = 'programs'
