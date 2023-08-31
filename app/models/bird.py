@@ -1,6 +1,6 @@
 import uuid
 from sqlmodel import Field, SQLModel
-
+from app.models.base_model import BaseModel
 # Gender as tuple
 class Bird(SQLModel, table=True):
     __tablename__ = 'birds'
