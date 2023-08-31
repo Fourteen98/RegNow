@@ -1,4 +1,5 @@
 import uuid
+from datetime import datetime
 from typing import Optional
 
 from pydantic import EmailStr
@@ -22,3 +23,5 @@ class Student(SQLModel, table=True):
     current_residence: str
     email: EmailStr
     index_number: str
+    created_at: Optional[datetime] = Field(default=datetime.now())
+    updated_at: Optional[datetime] = Field(default=datetime.now())

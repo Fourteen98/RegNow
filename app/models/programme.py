@@ -1,10 +1,12 @@
+from datetime import datetime
+from typing import Optional
+
 from sqlmodel import Field, Relationship, SQLModel
 
 from app.enum.entry_level import EntryLevel
 from app.enum.hall import Hall
 from app.enum.programme import Programme as ProgrammeEnum
 from app.enum.stream import Stream
-from app.models.student import Student
 
 
 class Programme(SQLModel, table=True):
@@ -16,6 +18,8 @@ class Programme(SQLModel, table=True):
     entry_level: EntryLevel
     hall: Hall
     student_id: int = Field(foreign_key="students.id", unique=True, index=True)
+    created_at: Optional[datetime] = Field(default=datetime.now())
+    updated_at: Optional[datetime] = Field(default=datetime.now())
 
 
 class ProgrammeCreate(SQLModel):
