@@ -5,6 +5,7 @@ from sqlmodel import Session, select
 
 from app.database import engine
 from app.models.bird import Bird
+from app.serializers.serializers import BirdCreate
 
 router = APIRouter()
 
@@ -18,9 +19,10 @@ def birds():
 
 
 @router.post("/birds/")
-def birds(bird: Bird):
+def birds(bird: BirdCreate):
     with Session(engine) as session:
-        session.add(bird)
+        bird_instance = Bird(**bird.dict())
+        session.add(bird_instance)
         session.commit()
-        session.refresh(bird)
-        return bird
+        session.refresh(bird_instance)
+        return bird_instance

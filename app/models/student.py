@@ -1,16 +1,27 @@
-from sqlmodel import SQLModel, Field, Column
 import uuid
+from datetime import datetime
+from typing import Optional
+
+from pydantic import EmailStr
+from sqlmodel import Field, SQLModel
+
+from app.enum import Gender
+from app.utils.country import Country
 
 
 class Student(SQLModel, table=True):
     __tablename__ = 'students'
-    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
+
+    id: Optional[int] = Field(default_factory=None, primary_key=True)
     first_name: str
     last_name: str
     middle_name: str
-    nationality: str
+    gender: Gender
+    nationality: Country
     age: int
     place_of_birth: str
     current_residence: str
-    email: str = Field(unique=True, index=True)
+    email: EmailStr
     index_number: str
+    created_at: Optional[datetime] = Field(default=datetime.now())
+    updated_at: Optional[datetime] = Field(default=datetime.now())

@@ -91,3 +91,6 @@ ENV/
 
 # Vs Code
 .vscode/
+
+# sqlite3
+database.db
