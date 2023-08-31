@@ -1,28 +1,15 @@
-from typing import List
+from fastapi import FastAPI
 
-from fastapi import APIRouter
-from sqlmodel import Session, select
+from app.database import create_db_and_tables
+from app.routes.api.v1 import main
+from app.routes.api.v1 import studentRoute
 
-from app.database import engine
-from app.models.bird import Bird
-from app.serializers.serializers import BirdCreate
+app = FastAPI()
 
-router = APIRouter()
-
-
-@router.get("/birds/", response_model=List[Bird])
-def birds():
-    with Session(engine) as session:
-        query = select(Bird)
-        birds = session.exec(query).all()
-    return birds
+app.include_router(main.router, prefix="/api/v1")
+app.include_router(studentRoute.router, prefix="/api/v1")
 
 
-@router.post("/birds/")
-def birds(bird: BirdCreate):
-    with Session(engine) as session:
-        bird_instance = Bird(**bird.dict())
-        session.add(bird_instance)
-        session.commit()
-        session.refresh(bird_instance)
-        return bird_instance
+@app.on_event("startup")
+def startup():
+    create_db_and_tables()
