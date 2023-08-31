@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class Relationship(str, Enum):
     FATHER = "father"
     MOTHER = "mother"
@@ -7,4 +8,3 @@ class Relationship(str, Enum):
     BROTHER = "brother"
     SISTER = "sister"
     OTHER = "other"
-

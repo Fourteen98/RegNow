@@ -1,5 +1,6 @@
 import pycountry
 
+
 class Country(str):
     @classmethod
     def __get_validators__(cls):

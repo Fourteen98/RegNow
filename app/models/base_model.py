@@ -1,10 +1,11 @@
-from sqlmodel import SQLModel, Field, DateTime
-from datetime import datetime
-from sqlalchemy.sql.functions import now
+# from sqlmodel import SQLModel, Field, DateTime
 
-class BaseModel(SQLModel, table=True):
-    __tablename__ = 'base_model'
-    __abstract__ = True
+# from typing import Optional
+# from datetime import datetime
 
-    created_at: datetime = Field(default=datetime.now(), nullable=False)
-    updated_at: datetime = Field(default=datetime.now(), nullable=False)
+# class BaseModel(SQLModel, table=True):
+#     __tablename__ = 'base_model'
+#     __abstract__ = True
+
+#     created_at: Optional[datetime] = Field(default=datetime.now())
+#     updated_at: Optional[datetime] = Field(default=datetime.now())

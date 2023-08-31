@@ -1,13 +1,26 @@
-from sqlmodel import SQLModel, Relationship
-from app.models.students import Student
+from sqlmodel import Field, Relationship, SQLModel
+
+from app.enum.entry_level import EntryLevel
+from app.enum.hall import Hall
+from app.enum.programme import Programme as ProgrammeEnum
+from app.enum.stream import Stream
+from app.models.student import Student
 
 
 class Programme(SQLModel, table=True):
-    __tablename__ = "programmmes"
+    __tablename__ = "programmes"
 
-    programme_name: str
-    stream: str
-    entry_level: str
-    hall: str
-    student: Student = Relationship(
-        back_populates="students", link_model=Student)
+    id: int = Field(default=None, primary_key=True, nullable=False)
+    programme_name: ProgrammeEnum
+    stream: Stream
+    entry_level: EntryLevel
+    hall: Hall
+    student_id: int = Field(foreign_key="students.id", unique=True, index=True)
+
+
+class ProgrammeCreate(SQLModel):
+    programme_name: ProgrammeEnum
+    stream: Stream
+    entry_level: EntryLevel
+    hall: Hall
+    student_id: int = Field(foreign_key="students.id", unique=True, index=True)

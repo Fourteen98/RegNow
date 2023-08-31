@@ -1,7 +1,9 @@
-from sqlmodel import SQLModel, Field
 import uuid
+from typing import Optional
+
 from pydantic import EmailStr
-from app.models.base_model import BaseModel
+from sqlmodel import Field, SQLModel
+
 from app.enum import Gender
 from app.utils.country import Country
 
@@ -9,7 +11,7 @@ from app.utils.country import Country
 class Student(SQLModel, table=True):
     __tablename__ = 'students'
 
-    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
+    id: Optional[int] = Field(default_factory=None, primary_key=True)
     first_name: str
     last_name: str
     middle_name: str
