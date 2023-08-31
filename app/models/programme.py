@@ -8,6 +8,7 @@ class Student (SQLModel, table=True):
     name: str = Field(index=True)
     programs: list["Program"] = relationship("Program", back_populates="student")
 
+
 class Program(SQLModel, table=True):
     __tablename__ = 'programs'
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
