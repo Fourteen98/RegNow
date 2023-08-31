@@ -6,7 +6,7 @@ from sqlmodel import Field, Relationship, SQLModel
 
 
 class Guardian(SQLModel, table=True):
-    id int: Optional[int] = Field(default=None, Primary_key)
+    id: Optional[int] = Field(default=None, primary_key=True)
     first_name: str
     last_name: str
     middle_name: str
