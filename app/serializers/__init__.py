@@ -1,2 +1,1 @@
-from app.serializers.serializers import (BirdCreate, ProgrammeCreate,
-                                         StudentCreate)
+from app.serializers.serializers import ProgrammeCreate, StudentCreate, RegisterStudentCreate
