@@ -29,6 +29,7 @@ def register_student(student: RegisterStudentCreate):
                 place_of_birth=student.place_of_birth,
                 current_residence=student.current_residence,
                 email=student.email,
+                date_of_birth=student.date_of_birth,
                 index_number=Student.generate_index_number(),
             )
             session.add(student_instance)

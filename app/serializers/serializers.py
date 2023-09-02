@@ -1,5 +1,6 @@
 from pydantic import EmailStr
 from sqlmodel import Field, SQLModel
+from datetime import date
 
 from app.enum.entry_level import EntryLevel
 from app.enum.hall import Hall
@@ -18,6 +19,7 @@ class StudentCreate(SQLModel):
     place_of_birth: str
     current_residence: str
     email: EmailStr
+    date_of_birth: date
 
 
 class ProgrammeCreate(SQLModel):
@@ -46,6 +48,7 @@ class RegisterStudentCreate(SQLModel):
     place_of_birth: str
     current_residence: str
     email: EmailStr
+    date_of_birth: date
     programme_name: Programme
     stream: Stream
     entry_level: EntryLevel
