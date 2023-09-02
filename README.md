@@ -59,7 +59,7 @@ pip install -r requirement.txt
 ## Usage
 Run the development server
 ```bash
-hypercorn app.main:app --bind 0.0.0.0:80
+hypercorn app.main:app --bind 0.0.0.0:80 --reload
 ```
 Open your browser and navigate to http://127.0.0.1:8000 to access the API.
 

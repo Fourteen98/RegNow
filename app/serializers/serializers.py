@@ -4,9 +4,8 @@ from sqlmodel import Field, SQLModel
 from app.enum.entry_level import EntryLevel
 from app.enum.hall import Hall
 from app.enum.programme import Programme
-from app.enum.stream import Stream
 from app.enum.relationship import Relationship
-
+from app.enum.stream import Stream
 
 
 class StudentCreate(SQLModel):
@@ -26,7 +25,7 @@ class ProgrammeCreate(SQLModel):
     stream: Stream
     entry_level: EntryLevel
     hall: Hall
-    student_id: int = Field(foreign_key="students.id", unique=True, index=True)
+    student_id: str = Field(foreign_key="students.id", unique=True, index=True)
 
 
 class GuardianCreate(SQLModel):
@@ -34,7 +33,7 @@ class GuardianCreate(SQLModel):
     last_name: str
     middle_name: str
     relationship: str
-    student_id: int = Field(foreign_key="students.id", index=True)
+    student_id: str = Field(foreign_key="students.id", index=True)
 
 
 class RegisterStudentCreate(SQLModel):
@@ -55,4 +54,3 @@ class RegisterStudentCreate(SQLModel):
     guardian_last_name: str
     guardian_middle_name: str
     guardian_relationship: Relationship
-
