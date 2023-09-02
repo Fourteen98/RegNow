@@ -87,8 +87,8 @@ def get_registered_students():
         return students
 
 
-@router.get("/students/{index_number}",
-            tags=["Students"],
+@router.get("/registrations/by-id/{index_number}",
+            tags=["Registrations"],
             status_code=status.HTTP_200_OK)
 def get_registered_student_by_id(index_number: str):
     with Session(engine) as session:
@@ -97,14 +97,14 @@ def get_registered_student_by_id(index_number: str):
                                Programme,
                                Guardian).join(
                 Programme,
-                Student.id == Programme.student_id).join(
-                Guardian, Student.id == Guardian.student_id).where(
+                Student.index_number == Programme.student_id).join(
+                Guardian, Student.index_number == Guardian.student_id).where(
                     Student.index_number == index_number)
             student_instance = session.exec(statement).first()
         except Exception as e:
             print(e)
             raise HTTPException(status_code=404, detail=f'Error: {e}')
-    return student_instance
+        return student_instance
 
 
 @router.delete("/students/{index_number}",
