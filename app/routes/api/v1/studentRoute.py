@@ -116,3 +116,22 @@ def patch_student(index_number: str, student):
             "message": "Student updated successfully",
             "data": student_instance
         }
+
+@router.delete("/students/{index_number", tags=["Students"], status_code=status.HTTP_204_NO_CONTENT)
+def delete_student(index_number: str):
+    with Session(engine) as session:
+        try:
+            student_instance = session.exec(
+                select(Student)
+                .where(Student.index_number == index_number)).first()
+            Guardian.delete_guardian(student_instance.guardian_id)
+            Programme.delete_programme(student_instance.programme_id)
+            session.delete(student_instance)
+            session.commit()
+        except Exception as e:
+            print(e)
+            raise HTTPException(status_code=404, detail=f'Error: {e}')
+        return {
+            "message": "Student deleted successfully",
+            "data": student_instance
+        }
